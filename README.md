@@ -1,6 +1,6 @@
 #app-ventas-service
 
-<a title="GitHub" href="https://github.com/caguzmansoto"><img src="https://img.shields.io/badge/GitHub-dowloads-green?logo=github" alt="GitHub" /></a>
+<a title="GitHub" href="https://github.com/caguzmansoto/app-ventas-service"><img src="https://img.shields.io/badge/GitHub-dowloads-green?logo=github" alt="GitHub" /></a>
 # Descripción y contexto
 
 - El microservicio tiene como objetivo implementar un sistema Back-End de ventas.
