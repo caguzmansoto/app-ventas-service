@@ -1,19 +1,18 @@
 #app-ventas-service
 
-<a title="SonarQube" href="http://sonarqube-utilitarios.appsdesa.ocp.pjud/dashboard?id=cl.amisoft.pjud.unificado%3Aunificado-agenda-service"><img src="https://img.shields.io/badge/Quality%20Gate-failed-red?logo=sonarqube" alt="SonarQube" /></a>
-
+<a title="GitHub" href="https://github.com/caguzmansoto"><img src="https://img.shields.io/badge/GitHub-dowloads-green?logo=github" alt="GitHub" /></a>
 # Descripción y contexto
 
-- El microservicio tiene como objetivo manejar la configuracion de la agenda para el sistema de tramitacion unificado de cada tribunal y competencia
+- El microservicio tiene como objetivo implementar un sistema Back-End de ventas.
 
 # Estado del Proyecto
 
 - Estado: En desarrollo
-- Versión: 3.3.0
+- Versión: 0.0.1
 
 # Requisitos del Entorno de Desarrollo
 
- - Para ambientar un equipo y comenzar a desarrollar sobre el microservicio unificado-agenda-service, es necesario contar con las siguientes herramientas y tecnologías:
+ - Para ambientar un equipo y comenzar a desarrollar sobre el microservicio app-ventas-service, es necesario contar con las siguientes herramientas y tecnologías:
 
 1. Java 8
 2. Maven version 3.6.X.
@@ -27,171 +26,65 @@
 1. Clonar repositorio usando URL
 
    ```bash
-    git clone https://CAPJ@dev.azure.com/CAPJ/Unificado/_git/unificado-agenda-service
+    git clone https://github.com/caguzmansoto/app-ventas-service.git
    ```
 
-2. Agregar en pom.xml principal del proyecto backend el microservicio `unificado-tramitar-service`
-
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <project xmlns="http://maven.apache.org/POM/4.0.0"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-     <modelVersion>4.0.0</modelVersion>
-     <groupId>cl.amisoft.pjud.unificado</groupId>
-     <artifactId>unificado-back</artifactId>
-     <packaging>pom</packaging>
-     <version>1.0-SNAPSHOT</version>
-     <modules>
-       <module>unificado-commons</module>
-       <module>unificado-agenda-service</module>
-     </modules>
-     <properties>
-       <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-     </properties>
-   </project>
-   ```
-
-3. Instalar dependencias de microservicio
+2. Instalar dependencias de microservicio
 
    ```bash
-   cd unificado-agenda-service
+   cd app-ventas-service
    mvn clean compile -U
    ```
 
-4. Ejecutar con el IDE de preferencia
-
-5. Consultar un endpoint usando Postman
-
+3. Ejecutar con el IDE de preferencia.
+4. Importar colección postman.
    ```
-    GET http://localhost:8042/agenda/sala/listar
+    Ruta: docs/coleccion-postman/app-ventas-service.postman_collection.json
    ```
 
-
-#### Proceso de ejecución
-
-1. Compilar e instalar dependencias
-
-   ```bash
-   mvn clean compile -U
-   ```
-
-2. Ejecutar pruebas para revisar
+5. Ejecutar endpoint de preferencia usando Postman. Por ejemplo:
 
    ```
-   mvn test
+    GET http://localhost:8080/presentaciones
    ```
 
-3. Con el IDE de preferencia, ejecutar
-
-4. Probar un endpoint
-
-   ```bash
-    GET http://localhost:8042/agenda/sala/listar
-   ```
 
 #### URL Swagger en ambiente desarrollo
 
-- http://unificado-agenda-service-desa.appsdesa.ocp.pjud/swagger-ui.html#/
+- http://localhost:8080/swagger-ui.html
 
 # Bug Conocidos o Probables
  - Ninguno
 
-# Dependencias
-   
-- unificado-commons-dependencies
 
-```xml
-<dependency>
-        <groupId>cl.amisoft.pjud.unificado</groupId>
-        <artifactId>unificado-commons-parent-persistence</artifactId>
-        <version>2.0.0-RELEASE</version>
-</dependency>
 
-```
+# RESTfull stress API
 
-- unificado-general-service
+ - Categoría
 
-```xml
-<dependency>
-        <groupId>cl.amisoft.pjud.unificado</groupId>
-        <artifactId>unificado-comun-service-client</artifactId>
-        <version>5.0.0-RELEASE</version>
-</dependency>
-```
-- unificado-tramitar-service
+![app-ventas-service](docs/plan-de-pruebas/stress-categoria-01.png)
+![app-ventas-service](docs/plan-de-pruebas/stress-categoria-02.png)
 
-```xml
-<dependency>
-        <groupId>cl.amisoft.pjud.unificado</groupId>
-        <artifactId>unificado-tramitar-service-client</artifactId>
-        <version>6.6.11-SNAPSHOT</version>
-</dependency>
-```  
+- Presentacion
 
-- unificado-auditoria-service
-
-```xml
-<dependency>
-        <groupId>cl.amisoft.pjud.unificado</groupId>
-        <artifactId>unificado-auditoria-service-client</artifactId>
-        <version>3.0.0-RELEASE</version>
-</dependency>
-```  
-- unificado-causa-service
-
-```xml
-<dependency>
-        <groupId>cl.amisoft.pjud.unificado</groupId>        
-        <artifactId>unificado-causa-service-client</artifactId>
-        <version>8.0.0-SNAPSHOT</version>
-</dependency>
-```
-
-#### Estructura de carpetas
-
-![unificado-agenda-service](docs/unificado-agenda-service.png)
-
-#### Diagramas de secuencia
-
-- Guardar Agenda (png)
-
-![unificado-agenda-service](docs/Diagrama-de-secuencia/Guardar%20Agenda%2029102021v1.png)
-
-- Mostrar Agenda (png)
-
-![unificado-agenda-service](docs/Diagrama-de-secuencia/Mostrar%20Agenda%2029102021v1.png)
-
-#### Plan de Pruebas
-
- - Ejemplo Arbol de resultado
-
-![unificado-agenda-service](docs/Plan-de-pruebas/Arbol-de-resultados-SalaApi-listarTodo.png)
-
- - Ejemplo Reporte resumen
-
-![unificado-agenda-service](docs/Plan-de-pruebas/Reporte-Resumen-SalaApi-listarTodo.png)
-
-- Ejemplo Resultados en arbol
-
-![unificado-agenda-service](docs/Plan-de-pruebas/Resultados-en-arbol-SalaApi-listarTodo.png)
-
-[comment]: <> (Buscar alternativa para descargar)
-<a href="docs/Plan-de-pruebas/Plan-de-Pruebas-Agenda.jmx" download="Plan-de-Pruebas-Agenda.jmx">Descargar Plan de pruebas de agenda</a>
+![app-ventas-service](docs/plan-de-pruebas/stress-presentacion-01.png)
+![app-ventas-service](docs/plan-de-pruebas/stress-presentacion-02.png)
 
 # Servicios externos consumidos
  - Ninguno   
  
 # Base de Datos 
-   - Motor: Oracle
-   - Service name: UNIFDESA
-   - Usuario/Esquema: UNIF_AGENDA
-   - Host: UNIFDESA.BDD.PJUD
-   - Puerto: 1503  
+   - Motor: PostgreSQL
+   - BBDD: guzmans_ventas
+   - Usuario/Esquema: postgres
+   - Contraseña: admin
+   - URL: jdbc:postgresql://localhost/guzmans_ventas
+   - Host: localhost
+   - Puerto: 5432  
 
 # Modelos BBDD
+![app-ventas-service](docs/modelo-bbdd/modelo_bbdd_guzmans_ventas.png)
 
-
-#Autores
- Célula 4
+#Autor
+ Carlos Guzmán
 
