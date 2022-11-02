@@ -33,6 +33,9 @@
 
    ```bash
    cd app-ventas-service
+   ```
+   
+      ```bash
    mvn clean compile -U
    ```
 
